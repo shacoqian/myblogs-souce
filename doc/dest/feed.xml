@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>PuGo - Static Site Generator</title><link>http://pugo.io</link><description>pugo is a simple static site generator</description><lastBuildDate>Thu, 31 Dec 2015 14:26:16 +0800</lastBuildDate><item><title>0.9.0(stable) Released</title><link>http://pugo.io/2015/12/31/0-9-0-release.html</link><pubDate>Thu, 31 Dec 2015 00:00:00 +0000</pubDate><category>pugo</category><category>release</category><category>stable</category><description><![CDATA[ <p><code>PuGo</code> 0.9.0 <strong>stable</strong> version is released. It contains many updates.</p>
+
+<h2>Deploy support</h2>
+
+<p><code>PuGo</code> support <code>deploy</code> to other platforms, such as git, ftp and sftp. The <code>build</code> command can deploy compiled files directly:</p>
+<pre><code class="language-bash">$ ./pugo build --dest=&quot;ftp://{user}:{password}/{directory}&quot;
+</code></pre>
+
+<p>More details in <a href="/docs/deploy-platform.html">Deploy Doc</a>.</p>
+
+<h2>New Theme</h2>
+
+<ul>
+<li><code>theme/uno</code> - new theme that style copy from ghost&rsquo;s <a href="https://github.com/daleanthony/Uno">uno theme</a>.</li>
+</ul>
+<pre><code class="language-bash">$ ./pugo build --theme=uno
+</code></pre>
+
+<h2>More Theme Functions</h2>
+
+<p>Avoid HTML escape in go:</p>
+<pre><code class="language-html">&lt;p&gt;{{HTML &quot;&lt;span&gt;html&lt;/span&gt;&quot;}}&lt;/p&gt;
+</code></pre>
+
+<p>Build Correct Url:</p>
+<pre><code class="language-html">&lt;a href=&quot;{{fullUrl .Post.Url}}&quot;&gt;{{.Post.Title}}&lt;/a&gt;
+&lt;!-- http://domain/base/{{.Post.Url}} --&gt;
+</code></pre>
+
+<p>International support:</p>
+<pre><code class="language-html">&lt;!-- read more or 阅读更多 --&gt;
+read more : {{.I18n.Tr &quot;post.readmore&quot;}}
+</code></pre>
+
+<p>Read <a href="/docs/template-func.html">Template Functions</a> to get more details.</p>
+
+<h2>Drop Old Content Format</h2>
+
+<p>The Format :</p>
+<pre><code>
+-----ini
+
+title = 0.8.0(stable) Released
+slug = 0-8-0-release
+date = 2015-11-20
+
+-----markdown
+
+`PuGo` 0.8.0 **stable** version is released. It contains some updates.
+.....
+
+</code></pre>
+
+<p>It&rsquo;s <strong>Dropped</strong>. Please upgrade your content format.</p>
+ ]]></description></item><item><title>0.8.0(stable) Released</title><link>http://pugo.io/2015/11/20/0-8-0-release.html</link><pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate><category>pugo</category><category>release</category><category>stable</category><description><![CDATA[ <p><code>PuGo</code> 0.8.0 <strong>stable</strong> version is released. It contains some updates.</p>
+
+<h2>New Commands</h2>
+
+<ul>
+<li><code>new</code> creates new <code>site</code>, <code>post</code> and <code>page</code>.</li>
+</ul>
+<pre><code class="language-bash">
+$ ./pugo new site
+$ ./pugo new post
+
+</code></pre>
+
+<ul>
+<li><code>build</code> compiles all data to static files that can be served by http server like <code>nginx</code>.</li>
+</ul>
+<pre><code class="language-bash">
+$ ./pugo build --dest=&quot;target-directory&quot;
+$ ./pugo build --watch
+
+</code></pre>
+
+<p>Read <a href="/docs/commands.html">Commands</a> to get more details.</p>
+
+<h2>New Theme</h2>
+
+<ul>
+<li><code>theme/pure</code> - a theme created by purecss</li>
+</ul>
+ ]]></description></item><item><title>0.7.0(stable) Released</title><link>http://pugo.io/2015/11/14/0-7-0-release.html</link><pubDate>Sat, 14 Nov 2015 00:00:00 +0000</pubDate><category>pugo</category><category>release</category><category>stable</category><description><![CDATA[ <p>I&rsquo;m excited to announce <code>Pugo.Static</code> 0.7.0 <strong>stable</strong> version. It&rsquo;s the first version to public. So it finished all basic features and is reliable in production.</p>
+
+<p>In this version, it contains major features as site generator:</p>
+
+<ul>
+<li>compile <code>markdown</code> content to a post or page with several meta values</li>
+<li>watch content files to rebuild static pages automatically</li>
+<li>post tags, post archive, rss feed, xml sitemap are supported</li>
+<li>simply customize the navbar, template and site info</li>
+<li>a rough debug mode for developers</li>
+</ul>
+
+<p>In next version, it plans to add:</p>
+
+<ul>
+<li><code>new</code> command line method to create site, post and page (probably)</li>
+<li><code>toml</code> support and use to instead of ini cases (probably)</li>
+</ul>
+ ]]></description></item></channel></rss>

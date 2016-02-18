@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Archive - PuGo</title>
+    <meta name="keywords" content="pugo,golang,static,site,generator"/>
+    <meta name="description" content="pugo is a simple static site generator"/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/css/prism.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+<header id="header">
+    <nav class="navbar navbar-inverse" id="site-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#site-nav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">PuGo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="site-nav-collapse">
+                <ul class="nav navbar-nav ">
+                    <li role="presentation" class="">
+                        <a href="/docs.html" class="" >Documentation
+                        </a>
+                    </li>
+                    
+                    <li role="presentation" class="">
+                        <a href="https://github.com/go-xiaohei/pugo" class=""  target="_blank" >
+                            <i class="fa fa-github"></i>Github
+                        </a>
+                    </li>
+                    
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="pull-right">
+                        <a>Current - <strong>0.9.0.0101</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<section id="main">
+    <div class="container">
+        <div id="archive-list">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 panel panel-default">
+                    
+                    <div class="archive">
+                        <h3>2015</h3>
+                        <hr/>
+                        
+                        <h4>
+                            <span class="date">12.31</span>
+                            <a href="/2015/12/31/0-9-0-release.html">0.9.0(stable) Released</a>
+                        </h4>
+                        
+                        <h4>
+                            <span class="date">11.20</span>
+                            <a href="/2015/11/20/0-8-0-release.html">0.8.0(stable) Released</a>
+                        </h4>
+                        
+                        <h4>
+                            <span class="date">11.14</span>
+                            <a href="/2015/11/14/0-7-0-release.html">0.7.0(stable) Released</a>
+                        </h4>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer">
+    <div class="container text-center">
+        <p>© 2015 PuGo.
+            <a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved </a> |
+            <a href="/sitemap.xml">Sitemap</a>
+        </p>
+        <p>Powered by <a href="https://github.com/go-xiaohei/pugo">Pugo 0.9.0.0101</a></p>
+    </div>
+</footer>
+<script src="/static/js/jquery-2.1.4.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/prism.min.js"></script>
+<script>
+    $(function () {
+        $('#index-download-btn').popover({
+            title:"Download",
+            content:$('#index-download').html(),
+            html:true,
+            placement:"bottom"
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>PuGo - Static Site Generator</title>
+    <meta name="keywords" content="pugo,golang,static,site,generator"/>
+    <meta name="description" content="pugo is a simple static site generator"/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/css/prism.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+<div id="index">
+    <h1 id="index-title">PuGo</h1>
+    <p id="index-desc">A Static Site Generator & Deployer</p>
+    <p id="index-version">
+        <a class="btn btn-primary" id="index-download-btn">0.9.0 stable (2016-01-01)</a>
+    </p>
+    <p id="index-release-note">
+        <a href="/posts/1">Release notes</a>
+    </p>
+    <div id="index-download">
+        <div class="container" id="index-download-container">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fa fa-linux"> </i>
+                    <p><a href="https://github.com/go-xiaohei/pugo/releases/download/0.9.0/linux_386.zip" target="_blank">32bit</a> / <a href="https://github.com/go-xiaohei/pugo/releases/download/0.9.0/linux_amd64.zip" target="_blank">64bit</a></p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-apple"></i>
+                    <p><a href="https://github.com/go-xiaohei/pugo/releases/download/0.9.0/darwin_amd64.zip" target="_blank">64bit</a></p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-windows"></i>
+                    <p><a href="https://github.com/go-xiaohei/pugo/releases/download/0.9.0/windows_386.zip" target="_blank">32bit</a> / <a href="https://github.com/go-xiaohei/pugo/releases/download/0.9.0/windows_amd64.zip" target="_blank">64bit</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="index-nav">
+        <div class="container centered-pills" id="index-nav-container">
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="http://fuxiaohei.me" target="_blank"><i class="fa fa-user"></i>Author</a></li>
+                <li role="presentation"><a href="/docs.html"><i class="fa fa-book"></i>Documentation</a></li>
+                <li role="presentation"><a href="https://github.com/go-xiaohei/pugo-static" target="_blank"><i class="fa fa-github"></i>Github</a></li>
+                <li role="presentation"><a href="/showcases.html" target="_blank"><i class="fa fa-users"></i>Showcases</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container text-center">
+        <p>© 2015 PuGo.
+            <a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved </a> |
+            <a href="/sitemap.xml">Sitemap</a>
+        </p>
+        <p>Powered by <a href="https://github.com/go-xiaohei/pugo">Pugo 0.9.0.0101</a></p>
+    </div>
+</footer>
+<script src="/static/js/jquery-2.1.4.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/prism.min.js"></script>
+<script>
+    $(function () {
+        $('#index-download-btn').popover({
+            title:"Download",
+            content:$('#index-download').html(),
+            html:true,
+            placement:"bottom"
+        })
+    })
+</script>
+</body>
+</html>

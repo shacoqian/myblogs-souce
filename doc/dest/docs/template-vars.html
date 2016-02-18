@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Theme Variables - PuGo</title>
+    <meta name="keywords" content="pugo,golang,static,site,generator"/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/css/prism.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+<header id="header">
+    <nav class="navbar navbar-inverse" id="site-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#site-nav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">PuGo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="site-nav-collapse">
+                <ul class="nav navbar-nav ">
+                    <li role="presentation" class="active">
+                        <a href="/docs.html" class="" >Documentation
+                        </a>
+                    </li>
+                    
+                    <li role="presentation" class="">
+                        <a href="https://github.com/go-xiaohei/pugo" class=""  target="_blank" >
+                            <i class="fa fa-github"></i>Github
+                        </a>
+                    </li>
+                    
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="pull-right">
+                        <a>Current - <strong>0.9.0.0101</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+               <ul class="list-group" id="page-list">
+    <li class="list-group-item">
+        <h5>Overview</h5>
+        <ul class="list-unstyled">
+            <li><a href="/docs/setup.html">Setup</a></li>
+            <li><a href="/docs/commands.html">Commands</a></li>
+        </ul>
+    </li>
+    <li class="list-group-item">
+        <h5>Writing</h5>
+        <ul class="list-unstyled">
+            <li><a href="/docs/writing.html">Writing</a></li>
+            <li><a href="/docs/meta.html">Site Meta</a></li>
+            <li><a href="/docs/media.html">Media</a></li>
+        </ul>
+    </li>
+    <li class="list-group-item">
+        <h5>Deployment</h5>
+        <ul class="list-unstyled">
+            <li><a href="/docs/deploy-static.html">Serve</a></li>
+            <li><a href="/docs/deploy-platform.html">Third Party</a></li>
+        </ul>
+    </li>
+    <li class="list-group-item">
+        <h5>Theme</h5>
+        <ul class="list-unstyled">
+            <li><a href="/docs/templates.html">Theme</a></li>
+            <li><a href="/docs/template-vars.html">Variables</a></li>
+            <li><a href="/docs/template-func.html">Functions</a></li>
+        </ul>
+    </li>
+    
+</ul>
+
+            </div>
+            <div class="col-md-9">
+                <div id="article-single">
+                    <article class="article">
+                        <div class="panel panel-default">
+                            <header class="header">
+                                <a class="btn btn-warning btn-sm pull-right" href="https://github.com/go-xiaohei/pugo/blob/master/doc/source/page/customize/template_var.md" target="_blank">Edit this page</a>
+                                <h3 class="title">Theme Variables</h3>
+                            </header>
+                            <aside class="aside clearfix">
+                                <a class="author" href="http://fuxiaohei.me/" target="_blank">fuxiaohei</a>
+                                <span class="date">12/30</span>
+                                <span class="ver">0.9.0</span>
+                            </aside>
+                            <section class="brief"><h3>Global Vars</h3>
+
+<p>Global vars are registered in all pages:</p>
+
+<ul>
+<li><strong>{{.Nav}}</strong>  <code>model.Navs</code>    Navigation items at the top of page, used in <code>header.html</code>.</li>
+<li><strong>{{.Meta}}</strong> <code>*model.Meta</code>   Meta info from <code>meta.md</code>, used in <code>meta.html</code>.</li>
+<li><strong>{{.Title}}</strong>    <code>string</code>  Title of this page, changing with current data. If a post ,use post title. If a page, use page title.</li>
+<li><strong>{{.Desc}}</strong> <code>string</code> Description of this page, changing with current data. Same to title.</li>
+<li><strong>{{.Root}}</strong> <code>string</code>    Root path for global url. If you set sub directory, need fix by this var.</li>
+<li><strong>{{.Version}}</strong> <code>string</code> PuGo&rsquo;s version string</li>
+<li><strong>{{.Permalink}}</strong> <code>string</code> Permalink of the page, existing in whole each pages.</li>
+<li><strong>{{.Owner}}</strong>    <code>*model.Author</code> the owner of the site, first author in meta.ini.</li>
+<li><strong>{{.Comment}}</strong>  <code>*model.Comment</code>    Comment settings from <code>comment.md</code>, used in <code>comment.html</code>.</li>
+<li><strong>{{.I18n}}</strong> <code>*helper.I18n</code>  I18n support</li>
+</ul>
+<pre><code class="language-html">&lt;!-- read more or 阅读更多 --&gt;
+read more : {{.I18n.Tr &quot;post.readmore&quot;}}
+
+&lt;!-- read more about %s --&gt;
+read more : {{.I18n.Trf &quot;post.readmore&quot; .Post.Title}}
+
+&lt;!-- use html content --&gt;
+&lt;p&gt;{{.I18n.TrHTML &quot;post.readmore&quot;}}&lt;/p&gt;
+&lt;!-- &lt;p&gt;&lt;a href=&quot;#&quot;&gt;title&lt;/a&gt;&lt;/p&gt; --&gt;
+</code></pre>
+
+<h3>Post Vars</h3>
+
+<p>In Single post template <code>post.html</code>:</p>
+
+<ul>
+<li><strong>{{.Post}}</strong> <code>*model.Post</code> the post data of this page.</li>
+<li><strong>{{.Post.Title}}</strong> <code>string</code> the title of this post.</li>
+<li><strong>{{.Post.Slug}}</strong> <code>string</code> the slug of this post, unique identifier.</li>
+<li><strong>{{.Post.Permalink}}</strong> <code>string</code> the permalink of this post, same value to <code>{{.Permalink}}</code>, maybe it&rsquo;s not visitable sometimes.</li>
+<li><strong>{{.Post.Url}}</strong> <code>string</code> the visitable of this post, maybe not same to permalink.</li>
+<li><strong>{{.Post.Created}}</strong> <code>model.Time</code> the created time of this post.</li>
+<li><strong>{{.Post.Updated}}</strong> <code>model.Time</code> the update time of this post. If no updates, be equal to created time.</li>
+<li><strong>{{.Post.Tags}}</strong> <code>[]model.Tag</code> the tags of this post.</li>
+<li><strong>{{.Post.Author}}</strong> <code>model.Author</code> the author of this post.</li>
+<li><strong>{{.Post.Raw}}</strong> <code>[]byte</code> the raw content bytes of this post.</li>
+<li><strong>{{.Post.ContentHTML}}</strong> <code>template.HTML</code> the content html of this post. <strong>use this one to render post html</strong>.</li>
+<li><strong>{{.Post.PreviewHTML}}</strong> <code>template.HTML</code> the preview content html of this post in posts list page. <strong>use this one to render post preview html</strong>.</li>
+</ul>
+
+<p>The tags can be ranged (sample code in <code>post.html</code>):</p>
+<pre><code class="language-html">{{range .Post.Tags}}
+    &lt;a href=&quot;{{.Url}}&quot;&gt;{{.Name}}&lt;/a&gt;
+{{end}}
+</code></pre>
+
+<p>In post list template <code>posts.html</code>:</p>
+
+<ul>
+<li><strong>{{.Posts}}</strong>    <code>[]*model.Post</code> the listed posts.</li>
+<li><strong>{{.Pager}}</strong>    <code>*helper.Pager</code> the pager object, contains current, prev and next page values.</li>
+</ul>
+
+<p>usage example:</p>
+<pre><code class="language-html">{{range .Posts}}
+    &lt;a href=&quot;{{.Url}}&quot;&gt;{{.Title}}&lt;/a&gt;
+{{end}}
+{{if .Pager.Prev}}&lt;a href=&quot;{{.Pager.PrevUrl}}&quot;&gt;prev&lt;/a&gt;{{end}}
+{{if .Pager.Next}}&lt;a href=&quot;{{.Pager.NextUrl}}&quot;&gt;next&lt;/a&gt;{{end}}
+</code></pre>
+
+<p><strong>The variables are some to <code>index.html</code></strong>.</p>
+
+<h3>Page Vars</h3>
+
+<p>In page template <code>page.html</code>. Major values are same to post, but <code>Tags</code>,<code>PreviewHTML</code> are dropped, <code>Meta</code> is added:</p>
+
+<ul>
+<li><strong>{{.Page}}</strong> <code>*model.Page</code>   the page content.</li>
+<li><strong>{{.Page.Meta}}</strong>    <code>map[string]string</code> the addition key values to the page.</li>
+</ul>
+
+<h3>Archive Vars</h3>
+
+<p>In template <code>archive.html</code>:</p>
+
+<ul>
+<li><strong>{{.Archives}}</strong> <code>*model.Archive</code>    the archive list divided by year.</li>
+</ul>
+</section>
+                        </div>
+                    </article>
+                </div>
+                
+<section id="comment">
+  <div class="row">
+    
+      <div class="col-md-10 col-md-offset-1">
+          <div id="disqus_thread"></div>
+          <script>
+              var disqus_config = function() {
+                  this.page.url = "http:\/\/pugo.io\/docs\/template-vars"; 
+                  
+              };
+              (function() { 
+                  var d = document;
+                  var s = d.createElement('script');
+                  s.src = '//fuxiaohei.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </div>
+</section>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer">
+    <div class="container text-center">
+        <p>© 2015 PuGo.
+            <a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved </a> |
+            <a href="/sitemap.xml">Sitemap</a>
+        </p>
+        <p>Powered by <a href="https://github.com/go-xiaohei/pugo">Pugo 0.9.0.0101</a></p>
+    </div>
+</footer>
+<script src="/static/js/jquery-2.1.4.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/prism.min.js"></script>
+<script>
+    $(function () {
+        $('#index-download-btn').popover({
+            title:"Download",
+            content:$('#index-download').html(),
+            html:true,
+            placement:"bottom"
+        })
+    })
+</script>
+</body>
+</html>

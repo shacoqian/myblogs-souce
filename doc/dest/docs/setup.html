@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Setup - PuGo</title>
+    <meta name="keywords" content="pugo,golang,static,site,generator"/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/css/prism.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+<header id="header">
+    <nav class="navbar navbar-inverse" id="site-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#site-nav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">PuGo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="site-nav-collapse">
+                <ul class="nav navbar-nav ">
+                    <li role="presentation" class="active">
+                        <a href="/docs.html" class="" >Documentation
+                        </a>
+                    </li>
+                    
+                    <li role="presentation" class="">
+                        <a href="https://github.com/go-xiaohei/pugo" class=""  target="_blank" >
+                            <i class="fa fa-github"></i>Github
+                        </a>
+                    </li>
+                    
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="pull-right">
+                        <a>Current - <strong>0.9.0.0101</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+               <ul class="list-group" id="page-list">
+    <li class="list-group-item">
+        <h5>Overview</h5>
+        <ul class="list-unstyled">
+            <li><a href="/docs/setup.html">Setup</a></li>
+            <li><a href="/docs/commands.html">Commands</a></li>
+        </ul>
+    </li>
+    <li class="list-group-item">
+        <h5>Writing</h5>
+        <ul class="list-unstyled">
+            <li><a href="/docs/writing.html">Writing</a></li>
+            <li><a href="/docs/meta.html">Site Meta</a></li>
+            <li><a href="/docs/media.html">Media</a></li>
+        </ul>
+    </li>
+    <li class="list-group-item">
+        <h5>Deployment</h5>
+        <ul class="list-unstyled">
+            <li><a href="/docs/deploy-static.html">Serve</a></li>
+            <li><a href="/docs/deploy-platform.html">Third Party</a></li>
+        </ul>
+    </li>
+    <li class="list-group-item">
+        <h5>Theme</h5>
+        <ul class="list-unstyled">
+            <li><a href="/docs/templates.html">Theme</a></li>
+            <li><a href="/docs/template-vars.html">Variables</a></li>
+            <li><a href="/docs/template-func.html">Functions</a></li>
+        </ul>
+    </li>
+    
+</ul>
+
+            </div>
+            <div class="col-md-9">
+                <div id="article-single">
+                    <article class="article">
+                        <div class="panel panel-default">
+                            <header class="header">
+                                <a class="btn btn-warning btn-sm pull-right" href="https://github.com/go-xiaohei/pugo/blob/master/doc/source/page/prolog/setup.md" target="_blank">Edit this page</a>
+                                <h3 class="title">Setup</h3>
+                            </header>
+                            <aside class="aside clearfix">
+                                <a class="author" href="http://fuxiaohei.me/" target="_blank">fuxiaohei</a>
+                                <span class="date">12/31</span>
+                                <span class="ver">0.9.0</span>
+                            </aside>
+                            <section class="brief"><h1>Install</h1>
+
+<p>You can install <code>PuGo</code> from <strong>binary</strong> file or <strong>source code</strong>.</p>
+
+<p><strong># Binary</strong></p>
+
+<p>Binary files are released in <a href="https://github.com/go-xiaohei/pugo/releases">github release</a> that marked as <code>Alpha</code> or <code>Stable</code> or <a href="/">homepage</a> . Download the <code>zip</code> file and extract, it contains:</p>
+
+<ul>
+<li><strong>pugo[.exe]</strong> - executable file, just run it</li>
+<li><strong>source</strong> - where put your writing contents</li>
+<li><strong>template</strong> - save template files</li>
+<li><strong>doc</strong> - documentation assets, use for <code>pugo doc</code> command</li>
+</ul>
+
+<p>Then just run, <code>./pugo[.exe]</code>.</p>
+
+<p><strong># Source Code</strong></p>
+
+<p>Install from source code requires you have setup <code>Go</code> environment and set <code>$GOPATH</code> variable correctly. It needs <strong>Go 1.4+</strong>.</p>
+
+<p>Then just <code>go get</code> the github repository:</p>
+<pre><code>go get -u github.com/go-xiaohei/pugo
+</code></pre>
+
+<p>Build it in manual:</p>
+<pre><code class="language-bash">$ go generate -x
+$ go build -v pugo.go
+</code></pre>
+
+<p>Then use following command to check which version of <code>PuGo</code> is installed on your system (Suppose <code>$GOPATH/bin</code> has been added to your <code>$PATH</code>):</p>
+<pre><code class="language-bash">$ pugo[.exe] -v
+pugo version 0.9.(2016-01-01)
+</code></pre>
+
+<p>This file contains assets files. You can run it by <strong>one file</strong>.</p>
+
+<p><strong># One-File Install</strong></p>
+
+<p>If no assets, only <code>pugo[.exe]</code> file can install a whole site. run :</p>
+<pre><code>$ ./pugo[.exe] new site
+</code></pre>
+
+<p>It extracts binding assets to current directory.</p>
+
+<p>Read <a href="/docs/commands">the doc</a> to get more information.</p>
+
+<h1>Getting Started</h1>
+
+<p>Let&rsquo;s explore the <code>PuGo</code> project.</p>
+
+<ul>
+<li><strong>source</strong> - put your markdown contents into the directory, support subdirectories.</li>
+<li><strong>source/post</strong> - posts are in the directory, support subdirectories.</li>
+<li><strong>source/page</strong> - pages are in the directory, support subdirectories.</li>
+<li><strong>source/media</strong> - media files usd in posts and pages</li>
+<li><strong>template</strong> - put themes in the directory</li>
+<li><strong>template/default</strong> - the default theme of <code>PuGo</code>, read more in <a href="/docs/templates">Template &amp; Theme</a>.</li>
+</ul>
+
+<p>After you prepare contents and templates well, just run <code>./pugo[.exe]</code>, it build and serve site on <code>0.0.0.0:9899</code>. It watches the <code>md</code> files in <strong><code>source</code></strong> directory. If you change something, it rebuilds contents to serve new files.</p>
+
+<h4>Run it up</h4>
+
+<p>Because of the assets extracted from zip, you can run the default server directly.</p>
+<pre><code>$ ./pugo.[exe] server
+</code></pre>
+
+<p>Then preview <code>http://localhost:9899</code>.</p>
+</section>
+                        </div>
+                    </article>
+                </div>
+                
+<section id="comment">
+  <div class="row">
+    
+      <div class="col-md-10 col-md-offset-1">
+          <div id="disqus_thread"></div>
+          <script>
+              var disqus_config = function() {
+                  this.page.url = "http:\/\/pugo.io\/docs\/setup"; 
+                  
+              };
+              (function() { 
+                  var d = document;
+                  var s = d.createElement('script');
+                  s.src = '//fuxiaohei.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </div>
+</section>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer">
+    <div class="container text-center">
+        <p>© 2015 PuGo.
+            <a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved </a> |
+            <a href="/sitemap.xml">Sitemap</a>
+        </p>
+        <p>Powered by <a href="https://github.com/go-xiaohei/pugo">Pugo 0.9.0.0101</a></p>
+    </div>
+</footer>
+<script src="/static/js/jquery-2.1.4.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/prism.min.js"></script>
+<script>
+    $(function () {
+        $('#index-download-btn').popover({
+            title:"Download",
+            content:$('#index-download').html(),
+            html:true,
+            placement:"bottom"
+        })
+    })
+</script>
+</body>
+</html>
